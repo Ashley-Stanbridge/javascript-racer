@@ -1,0 +1,11 @@
+
+.race_table1 td{
+  
+  background-color: blue;
+  height: 50px;
+  width: 50px;
+}
+
+.race_table1 td.active1, td.active2 {
+  background-color: black;
+}
