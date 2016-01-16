@@ -11,46 +11,33 @@ function updatePlayerPosition(player){
   for (var i = 0; i < row.length; i ++) {
     for (var c = 0; c < row[i].cells.length; c++) {
     console.log(row[i].cells[c]);
-    if (row[i].cells[c].classList.contains("active1")) {
+    if (row[i].cells[c].classList.contains(player)) {
       var activeCell = row[i].cells[c];
-      var nextCell = row[i].cells[(i + 1)];
-      activeCell.classList.remove("active1");
-      nextCell.classList.add("active1");
+      var nextCell = row[i].cells[(c + 1)];
+      activeCell.classList.remove(player);
+      nextCell.classList.add(player);
+      return;
     }
   }
 }
+}
 
-$('document').ready(function(){
-$('document').keyup(function(a){
+$(document).ready(function() {
+  $(document).keyup(function(e){
 var player;
-if(a.which == 81){
+
+if(e.which == 81){
+  console.log(e);
   player = "active1"
 }
-if(a.which == 80){
+if(e.which == 80){
+  console.log(e);
   player = "active2";
-  }
 }
+
+if (player == "active1" || player == "active2") {
+        updatePlayerPosition(player);
+        console.log("event");
+      }
 });
 });
-
-
-
-
-
-  // for (var i = 0; i < table.rows.length; i++) {
-  //   console.log(i);
-  //   console.log(row1);
-  //   if (table.rows[i].cells[i].classList.contains("active1")) {
-     //  var nextCell = cell[(i + 1)];
-  //     console.log(nextCell);
-  //      activeCell.classList.remove("active1");
-  //      activeCell.classList.add("cell1");
-  //      nextCell.classList.remove("cell1");
-  //      nextCell.classList.add("active1");
-  //      nextCell.innerHTML = player;
-  //     return;
-  //   }
-  // }
-}
- 
-// table.rows[i].cells[i];
